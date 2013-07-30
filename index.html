@@ -16,8 +16,29 @@
         </div>
         <div id="main-region" class="container"></div>
 
-        <script id="page-list-item" type="text/x-handlebars-template">{{title}}</script>
+        <script id="page-list-item" type="text/x-handlebars-template">
+            <td>{{title}}</td>
+            <td>
+                <a href="#" class="btn btn-small js-show">
+                    <i class="icon-eye-open"></i>
+                    Show
+                </a>
+                <button class="btn btn-small js-delete">
+                    <i class="icon-remove"></i>
+                    Delete
+                </button>
+            </td>
+        </script>
+        
+        <script id="page-list" type="text/x-handlebars-template">
+            <thead>
+                <tr><th>Title</th><th></th></tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </script>
 
+        <script id="page-view" type="text/x-handlebars-template"><h1>{{title}}</h1></script>
 
         <script src="js/underscore.js"></script>
         <script src="js/jquery.js"></script>
@@ -29,6 +50,14 @@
         <script src="js/handlebars.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/main.js"></script>
-   
+        <script src="js/entities/page.js"></script>
+        <script src="js/apps/pages/pages_app.js"></script>
+        <script src="js/apps/pages/list/list_view.js"></script>
+        <script src="js/apps/pages/list/list_controller.js"></script>
+        <script src="js/apps/pages/show/show_view.js"></script>
+        <script src="js/apps/pages/show/show_controller.js"></script>
+        <script>
+            App.start();
+        </script>
     </body>
 </html>
