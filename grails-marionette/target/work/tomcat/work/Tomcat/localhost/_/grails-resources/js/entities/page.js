@@ -1,46 +1,85 @@
 App.module('Entities', function(Entities, App, Backbone, Marionette, $, _, Handlebars) {
 
-    Entities.Page = Backbone.Model.extend({});
+    Entities.Page = Backbone.Model.extend({
+        urlRoot: "api/pages"
+    });
+
     Entities.PageCollection = Backbone.Collection.extend({
+        url: "api/pages",
         model: Entities.Page,
         comparator: "itemorder"
     });
 
-    var pages;
-
     var initializePages = function() {
-        pages = new Entities.PageCollection([
+        var pages = new Entities.PageCollection([
             {
-                id: 1, itemorder: 1, title: 'Home'
+                title: 'Home',
+                pageorder: 1
             },
             {
-                id: 2, itemorder: 2, title: 'About'
+                title: 'About',
+                pageorder: 2
             },
             {
-                id: 3, itemorder: 3, title: 'Portfolio'
+                title: 'Portfolio',
+                pageorder: 3
             },
             {
-                id: 4, itemorder: 4, title: 'Pricing'
+                title: 'Pricing',
+                pageorder: 4
             },
             {
-                id: 5, itemorder: 5, title: 'Contact'
-            }
+                title: 'Contact',
+                pageorder: 5
+            },
         ]);
-    };
+        pages.forEach(function(page) {
+            page.save();
+        });
+        return pages.models;
+    }
 
     var API = {
-        getPagesEntities: function() {
-            if(pages === undefined) {
-                initializePages();
-            }
-            return pages;
+        getPageEntities: function() {
+            var pages = new Entities.PageCollection();
+            var defer = $.Deferred();
+            pages.fetch({
+                success: function(data) {
+                    defer.resolve(data);
+                }
+            });
+            var promise = defer.promise();
+            $.when(promise).done(function(pages) {
+                if(pages.length === 0) {
+                    var models = initializePages();
+                    pages.reset(models);
+                }
+            });
+            return promise;
+        },
+        getPageEntity: function(pageId) {
+            var page = new Entities.Page({id: pageId});
+            var defer = $.Deferred();
+            page.fetch({
+                success: function(data) {
+                    defer.resolve(data);
+                },
+                error: function(data) {
+                    defer.resolve(undefined);
+                }
+            });
+            return defer.promise();
         }
     };
 
-    App.reqres.setHandler("pages:entities", function(){
-        return API.getPagesEntities();
+    App.reqres.setHandler("page:entities", function(){
+        return API.getPageEntities();
     });
 
+
+    App.reqres.setHandler("page:entity", function(id){
+        return API.getPageEntity(id);
+    });
 });
 
 

@@ -1,18 +1,22 @@
 App.module('PagesApp.Show', function(Show, App, Backbone, Marionette, $, _) {
     Show.Controller = {
         showPage: function(id) {
-			var pages = App.request("pages:entities");
-			var model = pages.get(id);
-            var pageView;
-            if(model !== undefined) {
-				pageView = new Show.Page({
-					model: model
-				});
-			} else {
-				pageView = new Show.MissingPage();
-			}
+            var loadingView = new App.Common.Views.Loading();
+            App.mainRegion.show(loadingView);
 
-            App.mainRegion.show(pageView);
+			var fetchingPage = App.request("page:entity", id);
+            $.when(fetchingPage).done(function(page) {
+                var pageView;
+                if (page !== undefined) {
+                    pageView = new Show.Page({
+                        model: page
+                    });
+                } else {
+                    pageView = new Show.MissingPage();
+                }
+
+                App.mainRegion.show(pageView);
+            });
         }
     };
 });

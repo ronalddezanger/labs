@@ -7,6 +7,8 @@ class UrlMappings {
             }
         }
 
+        "/api/pages"(resources:"page")
+
         "/"(view:"/index")
         "500"(view:'/error')
 	}

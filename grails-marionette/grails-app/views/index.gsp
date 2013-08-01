@@ -38,9 +38,14 @@
             </tbody>
         </script>
 
-        <script id="page-view" type="text/x-handlebars-template"><h1>{{title}}</h1></script>
+        <script id="page-view" type="text/x-handlebars-template"><h1>Title: {{title}}</h1></script>
 
         <script id="404-view" type="text/x-handlebars-template"><h1>404: Page not found</h1><div class="alert alert-error">The page you are looking for does not exist!</div></script>
+
+        <script id="loading-view" type="text/x-handlebars-template">
+            <h1>Loading</h1>
+            <p>Data loading view</p><div id="spinner"></div>
+        </script>
 
         <script src="js/underscore.js"></script>
         <script src="js/jquery.js"></script>
@@ -49,10 +54,13 @@
         <script src="js/backbone.babysitter.js"></script>
         <script src="js/backbone.wreqr.js"></script>
         <script src="js/backbone.marionette.js"></script>
+        <script src="js/spin.js"></script>
+        <script src="js/jquery.spin.js"></script>
         <script src="js/handlebars.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/main.js"></script>
         <script src="js/entities/page.js"></script>
+        <script src="js/common/views.js"></script>
         <script src="js/apps/pages/pages_app.js"></script>
         <script src="js/apps/pages/list/list_view.js"></script>
         <script src="js/apps/pages/list/list_controller.js"></script>

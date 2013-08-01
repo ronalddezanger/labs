@@ -1,10 +1,9 @@
-import grails.rest.render.json.*
+import grails.rest.render.json.JsonRenderer
 import nl.webexpress.Page
 
 beans = {
     // pageRenderer(JsonRenderer, Page) {
-    //     includes = ['id', 'title', 'pageorder']
-    //     excludes = []
+    //     excludes = ['id']
     // }
     // pageRenderer(nl.webexpress.PageJsonRenderer)
 }
