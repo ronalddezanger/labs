@@ -57,12 +57,12 @@ grails.project.dependency.resolution = {
 
         // plugins for the compile step
         compile ":scaffolding:2.0.0.RC1"
-        compile ':cache:1.1.1'
-compile ":mongodb:1.3.0"
+        // compile ':cache:1.1.1'
+        compile ":mongodb:1.3.0"
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.M5" // or ":hibernate4:4.1.11.M2"
-        runtime ":database-migration:1.3.5"
+        // runtime ":hibernate:3.6.10.M5" // or ":hibernate4:4.1.11.M2"
+        // runtime ":database-migration:1.3.5"
         runtime ":jquery:1.10.2"
         runtime ":resources:1.2"
         // Uncomment these (or add new ones) to enable additional resources capabilities
