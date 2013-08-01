@@ -6,5 +6,5 @@ beans = {
     //     includes = ['id', 'title', 'pageorder']
     //     excludes = []
     // }
-    pageRenderer(nl.webexpress.PageJsonRenderer)
+    // pageRenderer(nl.webexpress.PageJsonRenderer)
 }
