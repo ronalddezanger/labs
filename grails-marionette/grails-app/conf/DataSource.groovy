@@ -23,8 +23,8 @@ environments {
     development {
         grails {
             mongo {
-                host = "192.168.178.35"
-                // host = "localhost"
+                // host = "192.168.178.35"
+                host = "localhost"
             }
         }
     }
