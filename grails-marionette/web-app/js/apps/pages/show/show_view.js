@@ -5,6 +5,13 @@ App.module('PagesApp.Show', function(Show, App, Backbone, Marionette, $, _) {
 	});
 
     Show.Page = Marionette.ItemView.extend({
-        template: "#page-view"
+        template: "#page-view",
+        events: {
+            "click a.js-edit": "editClicked"
+        },
+        editClicked: function(e) {
+            e.preventDefault();
+            this.trigger("page:edit", this.model);
+        }
     });
 });

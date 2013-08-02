@@ -1,7 +1,20 @@
 App.module('Entities', function(Entities, App, Backbone, Marionette, $, _, Handlebars) {
 
     Entities.Page = Backbone.Model.extend({
-        urlRoot: "api/pages"
+        urlRoot: "api/pages",
+
+        validate: function (attrs, options) {
+            var errors = {};
+            if (!attrs.title) {
+                errors.title = "can't be blank";
+            }
+            if (!attrs.order) {
+                errors.order = "can't be blank";
+            }
+            if (!_.isEmpty(errors)) {
+                return errors;
+            }
+        }
     });
 
     Entities.PageCollection = Backbone.Collection.extend({

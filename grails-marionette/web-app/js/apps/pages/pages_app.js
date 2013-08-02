@@ -2,7 +2,8 @@ App.module('PagesApp', function(PagesApp, App, Backbone, Marionette, $, _) {
     PagesApp.Router = Marionette.AppRouter.extend({
         appRoutes: {
             "pages": "listPages",
-            "pages/:id": "showPage"
+            "pages/:id": "showPage",
+            "pages/:id/edit": "editPage"
         }
     });
 
@@ -12,6 +13,9 @@ App.module('PagesApp', function(PagesApp, App, Backbone, Marionette, $, _) {
         },
         showPage: function(id) {
             PagesApp.Show.Controller.showPage(id);
+        },
+        editPage: function(id) {
+            PagesApp.Edit.Controller.editPage(id);
         }
     };
 
@@ -23,6 +27,11 @@ App.module('PagesApp', function(PagesApp, App, Backbone, Marionette, $, _) {
     App.on("pages:show", function(id) {
         App.navigate("pages/"+id);
         API.showPage(id);
+    });
+
+    App.on("pages:edit", function(id) {
+        App.navigate("pages/"+id+"/edit");
+        API.editPage(id);
     });
 
     App.addInitializer(function() {
