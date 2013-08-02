@@ -15,6 +15,7 @@
             </div>
         </div>
         <div id="main-region" class="container"></div>
+        <div id="dialog-region"></div>
 
         <!-- TEMPLATES -->
 
@@ -58,34 +59,35 @@
                 <button class="btn js-submit">Save changes</button>
             </form>
 
-            <!--<div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Edit {{title}}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="control-group">
-                                    <label for="page-title" class="control-label">Title: </label>
-                                    <input type="text" id="page-title" name="title" value="{{title}}">
-                                </div>
-                                <div class="control-group">
-                                    <label for="page-order" class="control-label">Order: </label>
-                                    <input type="text" id="page-order" name="pageorder" value="{{order}}">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn">Close</button>
-                            <button class="btn js-submit">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </script>
 
+%{--         <div class="modal fade" id="modal-edit-page">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Edit {{title}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="control-group">
+                                <label for="page-title" class="control-label">Title: </label>
+                                <input type="text" id="page-title" name="title" value="{{title}}">
+                            </div>
+                            <div class="control-group">
+                                <label for="page-order" class="control-label">Order: </label>
+                                <input type="text" id="page-order" name="pageorder" value="{{order}}">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn">Close</button>
+                        <button class="btn js-submit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+ --}%
         <script src="js/underscore.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/json2.js"></script>

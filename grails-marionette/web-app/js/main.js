@@ -5,7 +5,8 @@ Backbone.Marionette.TemplateCache.prototype.compileTemplate = function(rawTempla
 var App = new Marionette.Application();
 
 App.addRegions({
-    mainRegion: "#main-region"
+    mainRegion: "#main-region",
+    dialogRegion: "#dialog-region",
 });
 
 App.navigate = function(route, options) {

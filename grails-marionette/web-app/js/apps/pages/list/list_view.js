@@ -6,7 +6,9 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         events: {
             "click": "highlightTitle",
             "click td a.js-show": "showClicked",
+            "click td a.js-edit": "editClicked",
             "click button.js-delete": "deleteClicked"
+
         },
         highlightTitle: function() {
             this.$el.toggleClass('warning');
@@ -15,6 +17,11 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
             e.preventDefault();
             e.stopPropagation();
             this.trigger("page:show", this.model);
+        },
+        editClicked: function  (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.trigger("page:edit", this.model);
         },
         deleteClicked: function(e) {
             e.stopPropagation();
