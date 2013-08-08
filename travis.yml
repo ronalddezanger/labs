@@ -1,0 +1,4 @@
+language: groovy
+script:  cd grails-marionette
+     && ./grailsw refresh-dependencies
+     && ./grailsw test-app
