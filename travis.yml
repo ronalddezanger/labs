@@ -1,4 +1,11 @@
 language: groovy
-script:  cd grails-marionette
-     && ./grailsw refresh-dependencies
+jdk:
+ - oraclejdk7
+branches:
+ only:
+ - master
+before_script:
+ - cd grails-marionette
+ - chmod +x grailsw
+script:  ./grailsw refresh-dependencies
      && ./grailsw test-app
