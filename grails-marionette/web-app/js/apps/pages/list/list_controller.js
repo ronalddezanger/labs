@@ -17,10 +17,18 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
 
                 pagesListView.on("itemview:page:edit", function(childview, model) {
                     var view = new App.PagesApp.Edit.Page({
-                        model: model
+                        model: model,
+                        asModal: true
                     });
-                    view.on("show", function() {
-                        this.$el.modal();
+                    view.on("form:submit", function (data) {
+                        if(model.save(data)) {
+                            childview.render();
+                            App.dialogRegion.close();
+                            childview.flash("success");
+                        }
+                        else {
+                            view.triggerMethod("form:data:invalid", model.validationError)
+                        }
                     });
                     App.dialogRegion.show(view);
                 });

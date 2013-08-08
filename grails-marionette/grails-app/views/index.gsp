@@ -5,6 +5,7 @@
         <title>Marionette example</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css"/>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -46,7 +47,6 @@
         </script>
 
         <script id="page-form" type="text/x-handlebars-template">
-            <h1>Edit {{title}}</h1>
             <form>
                 <div class="control-group">
                     <label for="page-title" class="control-label">Title: </label>
@@ -58,48 +58,50 @@
                 </div>
                 <button class="btn js-submit">Save changes</button>
             </form>
-
         </script>
 
-%{--         <div class="modal fade" id="modal-edit-page">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Edit {{title}}</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="control-group">
-                                <label for="page-title" class="control-label">Title: </label>
-                                <input type="text" id="page-title" name="title" value="{{title}}">
-                            </div>
-                            <div class="control-group">
-                                <label for="page-order" class="control-label">Order: </label>
-                                <input type="text" id="page-order" name="pageorder" value="{{order}}">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn">Close</button>
-                        <button class="btn js-submit">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
- --}%
-        <script src="js/underscore.js"></script>
-        <script src="js/jquery.js"></script>
-        <script src="js/json2.js"></script>
-        <script src="js/backbone.js"></script>
-        <script src="js/backbone.syphon.js"></script>
-        <script src="js/backbone.babysitter.js"></script>
-        <script src="js/backbone.wreqr.js"></script>
-        <script src="js/backbone.marionette.js"></script>
-        <script src="js/spin.js"></script>
-        <script src="js/jquery.spin.js"></script>
-        <script src="js/handlebars.js"></script>
-        <script src="js/bootstrap.js"></script>
+        %{--<script id="page-form" type="text/x-handlebars-template">--}%
+             %{--<div class="modal fade" id="modal-edit-page">--}%
+                %{--<div class="modal-dialog">--}%
+                    %{--<div class="modal-content">--}%
+                        %{--<div class="modal-header">--}%
+                            %{--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--}%
+                            %{--<h4 class="modal-title">Edit {{title}}</h4>--}%
+                        %{--</div>--}%
+                        %{--<div class="modal-body">--}%
+                            %{--<form>--}%
+                                %{--<div class="control-group">--}%
+                                    %{--<label for="page-title" class="control-label">Title: </label>--}%
+                                    %{--<input type="text" id="page-title" name="title" value="{{title}}">--}%
+                                %{--</div>--}%
+                                %{--<div class="control-group">--}%
+                                    %{--<label for="page-order" class="control-label">Order: </label>--}%
+                                    %{--<input type="text" id="page-order" name="pageorder" value="{{order}}">--}%
+                                %{--</div>--}%
+                            %{--</form>--}%
+                        %{--</div>--}%
+                        %{--<div class="modal-footer">--}%
+                            %{--<button class="btn">Close</button>--}%
+                            %{--<button class="btn js-submit">Save changes</button>--}%
+                        %{--</div>--}%
+                    %{--</div>--}%
+                %{--</div>--}%
+            %{--</div>--}%
+        %{--</script>--}%
+
+        <script src="js/vendor/underscore.js"></script>
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/jquery-ui-1.10.3.js"></script>
+        <script src="js/vendor/json2.js"></script>
+        <script src="js/vendor/backbone.js"></script>
+        <script src="js/vendor/backbone.syphon.js"></script>
+        <script src="js/vendor/backbone.babysitter.js"></script>
+        <script src="js/vendor/backbone.wreqr.js"></script>
+        <script src="js/vendor/backbone.marionette.js"></script>
+        <script src="js/vendor/spin.js"></script>
+        <script src="js/vendor/jquery.spin.js"></script>
+        <script src="js/vendor/handlebars.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
         <script src="js/main.js"></script>
         <script src="js/entities/page.js"></script>
         <script src="js/common/views.js"></script>

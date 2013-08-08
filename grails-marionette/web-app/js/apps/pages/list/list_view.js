@@ -8,7 +8,14 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
             "click td a.js-show": "showClicked",
             "click td a.js-edit": "editClicked",
             "click button.js-delete": "deleteClicked"
-
+        },
+        flash: function (cssClass) {
+            var $view = this.$el;
+            $view.hide().toggleClass(cssClass).fadeIn(800, function() {
+                setTimeout(function() {
+                    $view.toggleClass(cssClass)
+                }, 500);
+            });
         },
         highlightTitle: function() {
             this.$el.toggleClass('warning');
