@@ -11,3 +11,4 @@ stacktrace.log
 .DS_Store
 */target/
 */out/
+*.iml
