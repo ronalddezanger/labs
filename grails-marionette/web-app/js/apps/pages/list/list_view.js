@@ -54,4 +54,16 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         }
     });
 
+    List.Layout = Marionette.Layout.extend({
+        template: "#page-list-layout",
+        regions: {
+            panelRegion: "#panel-region",
+            pagesRegion: "#pages-region"
+        }
+    });
+
+    List.Panel = Marionette.Layout.extend({
+        template: "#page-list-panel"
+    });
+
 });

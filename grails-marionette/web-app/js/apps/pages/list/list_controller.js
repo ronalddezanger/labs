@@ -6,9 +6,17 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
             
             var fetchingPages = App.request("page:entities");
 
+            pagesListLayout = new List.Layout();
+            pagesListPanel = new List.Panel();
+
             $.when(fetchingPages).done(function(pages) {
                 var pagesListView = new List.Pages({
                     collection: pages
+                });
+
+                pagesListLayout.on("show", function() {
+                    pagesListLayout.panelRegion.show(pagesListPanel);
+                    pagesListLayout.pagesRegion.show(pagesListView);
                 });
 
                 pagesListView.on("itemview:page:show", function(childview, model) {
@@ -37,7 +45,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                     model.destroy();
                 });
 
-                App.mainRegion.show(pagesListView);
+                App.mainRegion.show(pagesListLayout);
             });
         }
     };
