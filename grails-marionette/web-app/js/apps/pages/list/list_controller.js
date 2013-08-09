@@ -22,14 +22,13 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                 pagesListPanel.on("page:new", function() {
                     var newPage = new App.Entities.Page();
                     var view = new App.PagesApp.New.Page({
-                        model: newPage,
-                        asModal: true
+                        model: newPage
                     });
                     view.on("form:submit", function(data) {
                         if(newPage.save(data)) {
                             pages.add(newPage);
-                            App.dialogRegion.close();
-                            pagesListView.children.findByModel(newPage);
+                            view.trigger("dialog:close");
+                            pagesListView.children.findByModel(newPage).flash(success);
                         } else {
                             view.triggerMethod("form:data:invalid", newPage.validationError);
                         }
@@ -43,13 +42,12 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
 
                 pagesListView.on("itemview:page:edit", function(childview, model) {
                     var view = new App.PagesApp.Edit.Page({
-                        model: model,
-                        asModal: true
+                        model: model
                     });
                     view.on("form:submit", function (data) {
                         if(model.save(data)) {
                             childview.render();
-                            App.dialogRegion.close();
+                            view.trigger("dialog:close");
                             childview.flash("success");
                         }
                         else {

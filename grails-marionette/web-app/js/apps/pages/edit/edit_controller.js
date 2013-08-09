@@ -9,7 +9,8 @@ App.module('PagesApp.Edit', function(Edit, App, Backbone, Marionette, $, _) {
                 var view;
                 if(page !== undefined) {
                     view = new Edit.Page({
-                        model: page
+                        model: page,
+                        generateTitle: true
                     });
 
                     view.on("form:submit", function (data) {

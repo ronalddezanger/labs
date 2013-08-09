@@ -51,16 +51,17 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
             this.listenTo(this.collection, "reset", function() {
                 this.appendHtml = function(collectionView, itemView, index) {
                     collectionView.$el.append(itemView.el);
+                }
             });
         },
         onItemviewPageDelete: function() {
-            this.$el.fadeOut(1000, function() {
-                $(this).fadeIn(1000);
+            this.$el.fadeOut(500, function() {
+                $(this).fadeIn(500);
             });
         },
         onCompositeCollectionRendered: function() {
             this.appendHtml = function(collectionView, itemView, index) {
-                collectionView.$el.prepend(itemView.el);
+                collectionView.$el.append(itemView.el);
             }
 
         }

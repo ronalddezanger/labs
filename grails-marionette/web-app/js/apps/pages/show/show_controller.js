@@ -1,7 +1,7 @@
 App.module('PagesApp.Show', function(Show, App, Backbone, Marionette, $, _) {
     Show.Controller = {
         showPage: function(id) {
-            var loadingView = new App.Common.Views.Loading({
+            var loadingView = new App.PagesApp.Common.Views.Loading({
                 message: "loading for showing page"
             });
             App.mainRegion.show(loadingView);

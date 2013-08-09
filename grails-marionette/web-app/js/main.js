@@ -6,7 +6,9 @@ var App = new Marionette.Application();
 
 App.addRegions({
     mainRegion: "#main-region",
-    dialogRegion: "#dialog-region",
+    dialogRegion: Marionette.Region.Dialog.extend({
+        el: "#dialog-region"
+    })
 });
 
 App.navigate = function(route, options) {

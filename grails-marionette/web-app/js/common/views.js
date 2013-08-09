@@ -42,21 +42,6 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
             var data = Backbone.Syphon.serialize(this);
             this.trigger("form:submit", data);
         },
-        onRender: function () {
-            if(!this.options.asModal) {
-                var $title = $('<h1>', {text: this.title});
-                this.$el.prepend($title);
-            }
-        },
-        onShow: function () {
-            if(this.options.asModal) {
-                this.$el.dialog({
-                    modal: true,
-                    title: this.title,
-                    width: "auto"
-                });
-            }
-        },
         onFormDataInvalid: function (errors) {
             var $view = this.$el;
             var clearFormErrors = function() {
