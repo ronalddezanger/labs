@@ -1,5 +1,11 @@
 App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Handlebars) {
 
+    var NoPagesView = Marionette.ItemView.extend({
+        template: "#page-list-none",
+        tagName: "tr",
+        className: "alert"
+    });
+
     List.Page = Backbone.Marionette.ItemView.extend({
         tagName: "tr",
         template: "#page-list-item",
@@ -45,6 +51,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         tagName: "table",
         className: "table table-hover",
         template: "#page-list",
+        emptyView: NoPagesView,
         itemView: List.Page,
         itemViewContainer: "tbody",
         initialize: function() {

@@ -102,6 +102,10 @@
             </div>
         </script>
 
+        <script id="page-list-none" type="text/x-handlebars-template">
+            <td colspan="3">No pages to display.</td>
+        </script>
+
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/jquery.js"></script>
         %{--<script src="js/vendor/jquery-ui-1.10.3.js"></script>--}%
