@@ -27,7 +27,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                     view.on("form:submit", function(data) {
                         if(newPage.save(data)) {
                             pages.add(newPage);
-                            view.trigger("dialog:close");
+                            view.trigger("modal:close");
                             pagesListView.children.findByModel(newPage).flash("success");
                         } else {
                             view.triggerMethod("form:data:invalid", newPage.validationError);
@@ -47,7 +47,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                     view.on("form:submit", function (data) {
                         if(model.save(data)) {
                             childview.render();
-                            view.trigger("dialog:close");
+                            view.trigger("modal:close");
                             childview.flash("success");
                         }
                         else {

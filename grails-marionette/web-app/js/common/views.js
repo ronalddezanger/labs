@@ -47,7 +47,7 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
         },
         cancelClicked: function(e) {
             e.preventDefault();
-            this.trigger("dialog:close");
+            this.trigger("modal:close");
         },
         onFormDataInvalid: function (errors) {
             var $view = this.$el;

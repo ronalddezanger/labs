@@ -1,22 +1,12 @@
 /* Uses twitter bootstrap for modal */
 Marionette.Region.Modal = Marionette.Region.extend({
-    events: {
-        'shown': 'shown'
-    },
-    constructor: function() {
-        Marionette.Region.prototype.constructor.apply(this, arguments);
-        this.ensureEl();
-        this.$el.on('hidden', {region:this}, function(e){
-            e.data.region.close();
-        });
-    },
-    onShow: function() {
+    onShow: function(view) {
+        this.listenTo(view, "modal:close", this.onClose);
         this.$el.modal('show');
     },
     onClose: function() {
+        this.stopListening();
+        this.close();
         this.$el.modal('hide');
-    },
-    shown: function () {
-
     }
 });
