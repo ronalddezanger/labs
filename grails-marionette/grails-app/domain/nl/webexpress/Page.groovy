@@ -6,7 +6,7 @@ import org.bson.types.ObjectId
 class Page {
     ObjectId id
     String title
-    Integer pageorder
+    Integer order
 
     static constraints = {
     }

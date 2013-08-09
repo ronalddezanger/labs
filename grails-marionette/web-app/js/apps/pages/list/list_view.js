@@ -47,10 +47,22 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         template: "#page-list",
         itemView: List.Page,
         itemViewContainer: "tbody",
+        initialize: function() {
+            this.listenTo(this.collection, "reset", function() {
+                this.appendHtml = function(collectionView, itemView, index) {
+                    collectionView.$el.append(itemView.el);
+            });
+        },
         onItemviewPageDelete: function() {
             this.$el.fadeOut(1000, function() {
                 $(this).fadeIn(1000);
             });
+        },
+        onCompositeCollectionRendered: function() {
+            this.appendHtml = function(collectionView, itemView, index) {
+                collectionView.$el.prepend(itemView.el);
+            }
+
         }
     });
 
@@ -62,8 +74,11 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         }
     });
 
-    List.Panel = Marionette.Layout.extend({
-        template: "#page-list-panel"
+    List.Panel = Marionette.ItemView.extend({
+        template: "#page-list-panel",
+        triggers: {
+            'click button.js-new': "page:new"
+        }
     });
 
 });

@@ -13,6 +13,6 @@ class PageJsonRenderer extends AbstractRenderer<Page> {
         context.contentType = MimeType.JSON.name
 
         def builder = new groovy.json.JsonBuilder()
-        builder.page(id: object.id.toString(), title: object.title, order: object.pageorder)
+        builder.page(id: object.id.toString(), title: object.title, order: object.order)
     }
 }

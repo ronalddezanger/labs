@@ -54,7 +54,7 @@
                 </div>
                 <div class="control-group">
                     <label for="page-order" class="control-label">Order: </label>
-                    <input type="text" id="page-order" name="pageorder" value="{{order}}">
+                    <input type="text" id="page-order" name="order" value="{{order}}">
                 </div>
                 <button class="btn js-submit">Save changes</button>
             </form>
@@ -84,14 +84,15 @@
         <script src="js/vendor/bootstrap.js"></script>
         <script src="js/main.js"></script>
         <script src="js/entities/page.js"></script>
-        <script src="js/common/views.js"></script>
         <script src="js/apps/pages/pages_app.js"></script>
+        <script src="js/common/views.js"></script>
         <script src="js/apps/pages/list/list_view.js"></script>
         <script src="js/apps/pages/list/list_controller.js"></script>
         <script src="js/apps/pages/show/show_view.js"></script>
         <script src="js/apps/pages/show/show_controller.js"></script>
         <script src="js/apps/pages/edit/edit_view.js"></script>
         <script src="js/apps/pages/edit/edit_controller.js"></script>
+        <script src="js/apps/pages/new/new_view.js"></script>
         <script>
             App.start();
         </script>

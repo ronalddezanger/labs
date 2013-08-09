@@ -1,7 +1,7 @@
 App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Handlebars) {
     List.Controller = {
         listPages: function() {
-            var loadingView = new App.Common.Views.Loading();
+            var loadingView = new App.PagesApp.Common.Views.Loading();
             App.mainRegion.show(loadingView);
             
             var fetchingPages = App.request("page:entities");
@@ -17,6 +17,24 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                 pagesListLayout.on("show", function() {
                     pagesListLayout.panelRegion.show(pagesListPanel);
                     pagesListLayout.pagesRegion.show(pagesListView);
+                });
+
+                pagesListPanel.on("page:new", function() {
+                    var newPage = new App.Entities.Page();
+                    var view = new App.PagesApp.New.Page({
+                        model: newPage,
+                        asModal: true
+                    });
+                    view.on("form:submit", function(data) {
+                        if(newPage.save(data)) {
+                            pages.add(newPage);
+                            App.dialogRegion.close();
+                            pagesListView.children.findByModel(newPage);
+                        } else {
+                            view.triggerMethod("form:data:invalid", newPage.validationError);
+                        }
+                    });
+                    App.dialogRegion.show(view);
                 });
 
                 pagesListView.on("itemview:page:show", function(childview, model) {
