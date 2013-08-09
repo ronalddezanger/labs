@@ -72,4 +72,28 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
             _.each(errors, markErrors);
         }
     });
+
+    Views.Confirm = Marionette.ItemView.extend({
+        title: "Confirm page deletion",
+        bodyText: "Are you sure you want to delete the page?",
+        hasBody: true,
+        onRender: function() {
+            this.$(".js-confirm").text("Delete page");
+        },
+        tagName: "div",
+        className: "modal-dialog",
+        template: "#page-modal-confirm",
+        events: {
+            "click button.js-confirm": "confirmClicked",
+            "click button.js-cancel": "cancelClicked"
+        },
+        confirmClicked: function(e) {
+            e.preventDefault();
+            this.trigger("page:destroy");
+        },
+        cancelClicked: function(e) {
+            e.preventDefault();
+            this.trigger("modal:close");
+        }
+    });
 });

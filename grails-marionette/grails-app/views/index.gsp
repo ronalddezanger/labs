@@ -82,6 +82,20 @@
             <button class="btn btn-primary js-new">New Page</button>
         </script>
 
+        <script id="page-modal-confirm" type="text/x-handlebars-template">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close js-cancel">&times;</button>
+                    <h3>Confirm</h3>
+                </div>
+                <div class="modal-body"><p>Are you sure?</p></div>
+                <div class="modal-footer">
+                    <button class="btn btn-default js-cancel">Cancel</button>
+                    <button class="btn btn-primary js-confirm">Confirm</button>
+                </div>
+            </div>
+        </script>
+
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/jquery.js"></script>
         %{--<script src="js/vendor/jquery-ui-1.10.3.js"></script>--}%

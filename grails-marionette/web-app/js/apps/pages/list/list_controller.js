@@ -58,7 +58,12 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                 });
 
                 pagesListView.on("itemview:page:delete", function(childview, model) {
-                    model.destroy();
+                    var confirmView = new App.PagesApp.Common.Views.Confirm();
+                    App.modalRegion.show(confirmView);
+                    confirmView.on("page:destroy", function() {
+                        this.trigger("modal:close");
+                        model.destroy();
+                    });
                 });
 
                 App.mainRegion.show(pagesListLayout);
