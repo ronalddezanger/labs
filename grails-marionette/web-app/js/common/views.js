@@ -53,19 +53,19 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
             var $view = this.$el;
             var clearFormErrors = function() {
                 var $form = $view.find("form");
-                $form.find(".help-inline.error").each(function () {
+                $form.find(".help-block").each(function () {
                     $(this).remove();
                 });
-                $form.find(".control-group.error").each(function () {
-                    $(this).removeClass("error");
+                $form.find(".form-group.has-error").each(function () {
+                    $(this).removeClass("has-error");
                 });
             };
 
             var markErrors = function (value, key) {
                 console.log(key, value);
                 var $controlGroup = $view.find('#page-'+key).parent();
-                var $errorEl = $('<span>', {class: "help-inline error", text: value});
-                $controlGroup.append($errorEl).addClass("error");
+                var $errorEl = $('<span>', {class: "help-block", text: value});
+                $controlGroup.append($errorEl).addClass("has-error");
             };
 
             clearFormErrors();
