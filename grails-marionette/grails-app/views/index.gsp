@@ -56,7 +56,8 @@
                     <label for="page-order" class="control-label">Order: </label>
                     <input type="text" id="page-order" name="order" value="{{order}}">
                 </div>
-                <button class="btn js-submit">Save changes</button>
+                <button class="btn js-cancel">Cancel</button>
+                <button class="btn btn-primary js-submit">Save changes</button>
             </form>
         </script>
 

@@ -52,13 +52,15 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
                 $form.find(".control-group.error").each(function () {
                     $(this).removeClass("error");
                 });
-            }
+            };
 
             var markErrors = function (value, key) {
-                var $controlGroup = $view.$el.find('#page-'+key).parent();
+                console.log(key, value);
+                var $controlGroup = $view.find('#page-'+key).parent();
                 var $errorEl = $('<span>', {class: "help-inline error", text: value});
                 $controlGroup.append($errorEl).addClass("error");
-            }
+            };
+
             clearFormErrors();
             _.each(errors, markErrors);
         }
