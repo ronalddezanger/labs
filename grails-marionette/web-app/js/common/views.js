@@ -33,14 +33,21 @@ App.module('PagesApp.Common.Views', function(Views, App, Backbone, Marionette, $
     });
 
     Views.Form = Marionette.ItemView.extend({
+        tagName: "div",
+        className: "modal-dialog",
         template: "#page-form",
         events: {
-            "click button.js-submit": "submitClicked"
+            "click button.js-submit": "submitClicked",
+            "click button.js-cancel": "cancelClicked"
         },
         submitClicked: function(e) {
             e.preventDefault();
             var data = Backbone.Syphon.serialize(this);
             this.trigger("form:submit", data);
+        },
+        cancelClicked: function(e) {
+            e.preventDefault();
+            this.trigger("dialog:close");
         },
         onFormDataInvalid: function (errors) {
             var $view = this.$el;

@@ -4,19 +4,21 @@
         <meta charset="utf-8">
         <title>Marionette example</title>
         <link rel="stylesheet" href="css/bootstrap.css">
+        %{--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">--}%
         <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css"/>
+        %{--<link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css"/>--}%
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="conatiner">
-                    <span class="brand">Marionette App</span>
+                <div class="container">
+                    <span class="navbar-brand">Marionette App</span>
                 </div>
             </div>
         </div>
         <div id="main-region" class="container"></div>
         <div id="dialog-region"></div>
+        <div id="modal" class="modal fade"></div>
 
         <!-- TEMPLATES -->
 
@@ -25,7 +27,7 @@
             <td>
                 <a href="#pages/{{id}}" class="btn btn-small js-show"><i class="icon-eye-open"></i>Show</a>
                 <a href="#pages/{{id}}/edit" class="btn btn-small js-edit"><i class="icon-pencil"></i>Edit</a>
-                <button class="btn btn-small js-delete"><i class="icon-remove"></i>Delete</button>
+                <button class="btn btn-default btn-small js-delete"><i class="icon-remove"></i>Delete</button>
             </td>
         </script>
         
@@ -47,18 +49,28 @@
         </script>
 
         <script id="page-form" type="text/x-handlebars-template">
-            <form>
-                <div class="control-group">
-                    <label for="page-title" class="control-label">Title: </label>
-                    <input type="text" id="page-title" name="title" value="{{title}}">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close js-cancel">&times;</button>
+                    <h3>Modal header</h3>
                 </div>
-                <div class="control-group">
-                    <label for="page-order" class="control-label">Order: </label>
-                    <input type="text" id="page-order" name="order" value="{{order}}">
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="page-title" class="control-label">Title</label>
+                            <input type="text" class="form-control" id="page-title" name="title" value="{{title}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="page-order" class="control-label">Order</label>
+                            <input type="text" class="form-control" id="page-order" name="order" value="{{order}}">
+                        </div>
+                    </form>
                 </div>
-                <button class="btn js-cancel">Cancel</button>
-                <button class="btn btn-primary js-submit">Save changes</button>
-            </form>
+                <div class="modal-footer">
+                    <button class="btn btn-default js-cancel">Cancel</button>
+                    <button class="btn btn-primary js-submit">Save changes</button>
+                </div>
+            </div>
         </script>
 
         <script id="page-list-layout" type="text/x-handlebars-template">
@@ -72,7 +84,9 @@
 
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/jquery.js"></script>
-        <script src="js/vendor/jquery-ui-1.10.3.js"></script>
+        %{--<script src="js/vendor/jquery-ui-1.10.3.js"></script>--}%
+        %{--<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>--}%
+        <script src="js/vendor/bootstrap.js"></script>
         <script src="js/vendor/json2.js"></script>
         <script src="js/vendor/backbone.js"></script>
         <script src="js/vendor/backbone.syphon.js"></script>
@@ -82,8 +96,8 @@
         <script src="js/vendor/spin.js"></script>
         <script src="js/vendor/jquery.spin.js"></script>
         <script src="js/vendor/handlebars.js"></script>
-        <script src="js/vendor/bootstrap.js"></script>
         <script src="js/apps/config/marionette/regions/dialog.js"></script>
+        <script src="js/apps/config/marionette/regions/modal.js"></script>
         <script src="js/main.js"></script>
         <script src="js/entities/page.js"></script>
         <script src="js/apps/pages/pages_app.js"></script>

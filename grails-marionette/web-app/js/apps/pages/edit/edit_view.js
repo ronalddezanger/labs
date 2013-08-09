@@ -8,6 +8,8 @@ App.module('PagesApp.Edit', function(Edit, App, Backbone, Marionette, $, _) {
                 var $title = $('<h1>', { text: this.title });
                 this.$el.prepend($title);
             }
+
+            this.$(".js-submit").text("Update page");
         }
     });
 });

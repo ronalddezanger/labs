@@ -8,6 +8,9 @@ App.addRegions({
     mainRegion: "#main-region",
     dialogRegion: Marionette.Region.Dialog.extend({
         el: "#dialog-region"
+    }),
+    modalRegion: Marionette.Region.Modal.extend({
+        el: "#modal"
     })
 });
 

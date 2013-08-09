@@ -28,12 +28,12 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                         if(newPage.save(data)) {
                             pages.add(newPage);
                             view.trigger("dialog:close");
-                            pagesListView.children.findByModel(newPage).flash(success);
+                            pagesListView.children.findByModel(newPage).flash("success");
                         } else {
                             view.triggerMethod("form:data:invalid", newPage.validationError);
                         }
                     });
-                    App.dialogRegion.show(view);
+                    App.modalRegion.show(view);
                 });
 
                 pagesListView.on("itemview:page:show", function(childview, model) {
@@ -54,7 +54,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                             view.triggerMethod("form:data:invalid", model.validationError)
                         }
                     });
-                    App.dialogRegion.show(view);
+                    App.modalRegion.show(view);
                 });
 
                 pagesListView.on("itemview:page:delete", function(childview, model) {
