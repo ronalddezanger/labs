@@ -80,6 +80,12 @@
 
         <script id="page-list-panel" type="text/x-handlebars-template">
             <button class="btn btn-primary js-new">New Page</button>
+            <form class="form-search form-inline pull-right">
+                <div class="input-append">
+                    <input type="text" class="span2 search-query js-filter-criterion"/>
+                    <button type="submit" class="btn btn-default js-filter">Filter pages</button>
+                </div>
+            </form>
         </script>
 
         <script id="page-modal-confirm" type="text/x-handlebars-template">
@@ -113,6 +119,7 @@
         <script src="js/apps/config/marionette/regions/dialog.js"></script>
         <script src="js/apps/config/marionette/regions/modal.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/entities/common.js"></script>
         <script src="js/entities/page.js"></script>
         <script src="js/apps/pages/pages_app.js"></script>
         <script src="js/common/views.js"></script>

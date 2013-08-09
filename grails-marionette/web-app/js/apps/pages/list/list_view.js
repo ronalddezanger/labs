@@ -79,6 +79,15 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         template: "#page-list-panel",
         triggers: {
             'click button.js-new': "page:new"
+        },
+        events: {
+            "click button.js-filter": "filterClicked"
+        },
+        filterClicked: function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var criterion = this.$(".js-filter-criterion").val();
+            this.trigger("page:filter", criterion);
         }
     });
 

@@ -10,8 +10,22 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
             pagesListPanel = new List.Panel();
 
             $.when(fetchingPages).done(function(pages) {
+                var filteredPages = App.Entities.FilteredCollection({
+                    collection: pages,
+                    filterFunction: function(filterCriterion) {
+                        var criterion = filterCriterion.toLowerCase();
+                        return function(page) {
+                            if(page.get('title').toLowerCase().indexOf(criterion) !== -1) {
+                                return page;
+                            } else {
+                                return false;
+                            }
+                        };
+                    }
+                });
+
                 var pagesListView = new List.Pages({
-                    collection: pages
+                    collection: filteredPages
                 });
 
                 pagesListLayout.on("show", function() {
@@ -28,12 +42,19 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                         if(newPage.save(data)) {
                             pages.add(newPage);
                             view.trigger("modal:close");
-                            pagesListView.children.findByModel(newPage).flash("success");
+                            var newPagesView = pagesListView.children.findByModel(newPage);
+                            if(newPagesView) {
+                                newPagesView.flash("success");
+                            }
                         } else {
                             view.triggerMethod("form:data:invalid", newPage.validationError);
                         }
                     });
                     App.modalRegion.show(view);
+                });
+
+                pagesListPanel.on("page:filter", function (filterCriterion) {
+                    filteredPages.filter(filterCriterion);
                 });
 
                 pagesListView.on("itemview:page:show", function(childview, model) {
