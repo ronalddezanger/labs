@@ -2,6 +2,7 @@
 Marionette.Region.Modal = Marionette.Region.extend({
     onShow: function(view) {
         this.listenTo(view, "modal:close", this.onClose);
+        $(".modal-header h3").text(view.title);
         this.$el.modal('show');
     },
     onClose: function() {
