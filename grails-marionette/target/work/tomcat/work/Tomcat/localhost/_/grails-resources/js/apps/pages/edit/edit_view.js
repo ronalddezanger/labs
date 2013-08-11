@@ -1,34 +1,15 @@
 App.module('PagesApp.Edit', function(Edit, App, Backbone, Marionette, $, _) {
-    Edit.Page = Marionette.ItemView.extend({
-        template: "#page-form",
-        events: {
-            'click button.js-submit': 'submitClicked'
+    Edit.Page = App.PagesApp.Common.Views.Form.extend({
+        initialize: function() {
+            this.title = "Edit "+this.model.get("title");
         },
-        submitClicked: function(e) {
-            e.preventDefault();
-            var data = Backbone.Syphon.serialize(this);
-            this.trigger("form:submit", data);
-        },
-        onFormDataInvalid: function (errors) {
-            var $view = this.$el;
-            var clearFormErrors = function() {
-                var $form = $view.find("form");
-                $form.find(".help-inline.error").each(function () {
-                    $(this).remove();
-                });
-                $form.find(".control-group.error").each(function () {
-                    $(this).removeClass("error");
-                });
+        onRender: function() {
+            if(this.options.generateTitle) {
+                var $title = $('<h1>', { text: this.title });
+                this.$el.prepend($title);
             }
 
-            var self = this;
-            var markErrors = function (value, key) {
-                var $controlGroup = self.$el.find('#page-'+key).parent();
-                var $errorEl = $('<span>', {class: "help-inline error", text: value});
-                $controlGroup.append($errorEl).addClass("error");
-            }
-            clearFormErrors();
-            _.each(errors, markErrors);
+            this.$(".js-submit").text("Update page");
         }
     });
 });

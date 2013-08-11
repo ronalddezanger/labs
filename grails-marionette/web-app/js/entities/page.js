@@ -3,6 +3,11 @@ App.module('Entities', function(Entities, App, Backbone, Marionette, $, _, Handl
     Entities.Page = Backbone.Model.extend({
         urlRoot: "api/pages",
 
+        defaults: {
+            title: '',
+            order: 0
+        },
+
         validate: function (attrs, options) {
             var errors = {};
             if (!attrs.title) {
@@ -20,30 +25,30 @@ App.module('Entities', function(Entities, App, Backbone, Marionette, $, _, Handl
     Entities.PageCollection = Backbone.Collection.extend({
         url: "api/pages",
         model: Entities.Page,
-        comparator: "itemorder"
+        comparator: "order"
     });
 
     var initializePages = function() {
         var pages = new Entities.PageCollection([
             {
                 title: 'Home',
-                pageorder: 1
+                order: 1
             },
             {
                 title: 'About',
-                pageorder: 2
+                order: 2
             },
             {
                 title: 'Portfolio',
-                pageorder: 3
+                order: 3
             },
             {
                 title: 'Pricing',
-                pageorder: 4
+                order: 4
             },
             {
                 title: 'Contact',
-                pageorder: 5
+                order: 5
             },
         ]);
         pages.forEach(function(page) {

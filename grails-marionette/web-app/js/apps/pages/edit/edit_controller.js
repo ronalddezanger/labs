@@ -1,7 +1,7 @@
 App.module('PagesApp.Edit', function(Edit, App, Backbone, Marionette, $, _) {
     Edit.Controller = {
         editPage: function(id) {
-            var loadingView = new App.Common.Views.Loading();
+            var loadingView = new App.PagesApp.Common.Views.Loading();
             App.mainRegion.show(loadingView);
 
             var fetchingPage = App.request("page:entity", id);
@@ -9,7 +9,8 @@ App.module('PagesApp.Edit', function(Edit, App, Backbone, Marionette, $, _) {
                 var view;
                 if(page !== undefined) {
                     view = new Edit.Page({
-                        model: page
+                        model: page,
+                        generateTitle: true
                     });
 
                     view.on("form:submit", function (data) {
