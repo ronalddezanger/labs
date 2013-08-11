@@ -11,3 +11,6 @@ stacktrace.log
 .DS_Store
 */target/
 */out/
+*.sublime-project
+*.sublime-workspace
+*.iml
