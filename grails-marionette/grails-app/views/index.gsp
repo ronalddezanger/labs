@@ -13,6 +13,7 @@
             <div class="navbar-inner">
                 <div class="container">
                     <span class="navbar-brand">Marionette App</span>
+                    <span class="pull-right"><a href="#about" class="btn btn-primary btn-small js-show-about">About</a></span>
                 </div>
             </div>
         </div>
@@ -106,6 +107,12 @@
             <td colspan="3">No pages to display.</td>
         </script>
 
+        <script id="about-message" type="text/x-handlebars-template">
+            <h1>About this app</h1>
+            <p>Gemaakt door Ronald de Zanger tbv het leren van Backbone.Marionette.</p>
+            <p>Game on!</p>
+        </script>
+
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/jquery.js"></script>
         %{--<script src="js/vendor/jquery-ui-1.10.3.js"></script>--}%
@@ -134,6 +141,9 @@
         <script src="js/apps/pages/edit/edit_view.js"></script>
         <script src="js/apps/pages/edit/edit_controller.js"></script>
         <script src="js/apps/pages/new/new_view.js"></script>
+        <script src="js/apps/about/about_app.js"></script>
+        <script src="js/apps/about/show/show_view.js"></script>
+        <script src="js/apps/about/show/show_controller.js"></script>
         <script>
             App.start();
         </script>
