@@ -1,6 +1,6 @@
 App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Handlebars) {
     List.Controller = {
-        listPages: function() {
+        listPages: function(criterion) {
             var loadingView = new App.PagesApp.Common.Views.Loading();
             App.mainRegion.show(loadingView);
             
@@ -55,6 +55,7 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
 
                 pagesListPanel.on("page:filter", function (filterCriterion) {
                     filteredPages.filter(filterCriterion);
+                    App.trigger("page:filter", filterCriterion);
                 });
 
                 pagesListView.on("itemview:page:show", function(childview, model) {
