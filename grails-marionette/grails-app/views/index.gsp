@@ -7,21 +7,16 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
-        <nav id="header-region" class="navbar" role="navigation"></nav>
+        <nav id="header-region" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
         <div id="main-region" class="container"></div>
         <div id="dialog-region"></div>
         <div id="modal" class="modal fade"></div>
 
         <!-- TEMPLATES -->
         <script id="header-template" type="text/x-handlebars-template">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="navbar-brand" href="#pages">Marionette Pages App</a>
-                    <a href="#about">About</a>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav"></ul>
-                    </div>
-                </div>
+            <a class="navbar-brand" href="#pages">Marionette Pages App</a>
+            <div>
+                <ul class="nav navbar-nav"></ul>
             </div>
         </script>
 
@@ -150,6 +145,9 @@
         <script src="js/apps/about/about_app.js"></script>
         <script src="js/apps/about/show/show_view.js"></script>
         <script src="js/apps/about/show/show_controller.js"></script>
+        <script src="js/apps/header/header_app.js"></script>
+        <script src="js/apps/header/list/list_view.js"></script>
+        <script src="js/apps/header/list/list_controller.js"></script>
         <script>
             App.start();
         </script>

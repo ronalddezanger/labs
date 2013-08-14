@@ -14,7 +14,6 @@ App.module('HeaderApp.List', function(List, App, Backbone, Marionette, $, _, Han
 
         onRender: function(){
             if(this.model.selected){
-                // add class so Bootstrap will highlight the active entry in the navbar
                 this.$el.addClass("active");
             };
         }
@@ -23,12 +22,12 @@ App.module('HeaderApp.List', function(List, App, Backbone, Marionette, $, _, Han
     List.Headers = Marionette.CompositeView.extend({
         template: "#header-template",
         tagName: "div",
-        className: "navbar navbar-inverse navbar-fixed-top",
+        className: "container",
         itemView: List.Header,
         itemViewContainer: "ul",
 
         events: {
-            "click a.brand": "brandClicked"
+            "click a.navbar-brand": "brandClicked"
         },
 
         brandClicked: function(e){

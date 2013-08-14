@@ -8,6 +8,7 @@ App.module('AboutApp', function(AboutApp, App, Backbone, Marionette, $, _) {
     var API = {
         showAbout: function() {
             AboutApp.Show.Controller.showAbout();
+            App.execute("set:active:header", "about");
         }
     };
 
@@ -17,6 +18,8 @@ App.module('AboutApp', function(AboutApp, App, Backbone, Marionette, $, _) {
     });
 
     App.addInitializer(function() {
-        new AboutApp.Router({ controller: API });
+        new AboutApp.Router({ 
+            controller: API
+        });
     });
 });

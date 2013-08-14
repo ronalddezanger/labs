@@ -10,12 +10,15 @@ App.module('PagesApp', function(PagesApp, App, Backbone, Marionette, $, _) {
     var API = {
         listPages: function(criterion) {
             PagesApp.List.Controller.listPages(criterion);
+            App.execute("set:active:header", "pages");
         },
         showPage: function(id) {
             PagesApp.Show.Controller.showPage(id);
+            App.execute("set:active:header", "pages");
         },
         editPage: function(id) {
             PagesApp.Edit.Controller.editPage(id);
+            App.execute("set:active:header", "pages");
         }
     };
 

@@ -19,18 +19,19 @@ App.module('Entities', function (Entities, App, Backbone, Marionette, $, _){
             { name: "Pages", url: "pages"},
             { name: "About", url: "about"}
         ]);
-    }
+    };
 
     var API = {
         getHeaders: function() {
-            if(initializeHeaders === undefined) {
-                initializeHeaders();
-            }
+            initializeHeaders();
+//            if(initializeHeaders === undefined) {
+//                initializeHeaders();
+//            }
             return Entities.headers;
         }
     };
 
     App.reqres.setHandler("header:entities", function() {
         return API.getHeaders();
-    })
+    });
 });
