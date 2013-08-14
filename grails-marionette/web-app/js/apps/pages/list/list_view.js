@@ -90,11 +90,17 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
         events: {
             "click button.js-filter": "filterClicked"
         },
+        ui: {
+            criterion: "input.js-filter-criterion"
+        },
         filterClicked: function(e) {
             e.preventDefault();
             e.stopPropagation();
             var criterion = this.$(".js-filter-criterion").val();
             this.trigger("page:filter", criterion);
+        },
+        onSetFilterCriterion: function(criterion) {
+            $(this.ui.criterion).val(criterion);
         }
     });
 

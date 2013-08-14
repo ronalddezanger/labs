@@ -24,6 +24,13 @@ App.module('PagesApp.List', function(List, App, Backbone, Marionette, $, _, Hand
                     }
                 });
 
+                if(criterion) {
+                    filteredPages.filter(criterion);
+                    pagesListPanel.once("show", function() {
+                        pagesListPanel.triggerMethod("set:filter:criterion", criterion);
+                    });
+                }
+
                 var pagesListView = new List.Pages({
                     collection: filteredPages
                 });
