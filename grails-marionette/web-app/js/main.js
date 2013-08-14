@@ -5,6 +5,7 @@ Backbone.Marionette.TemplateCache.prototype.compileTemplate = function(rawTempla
 var App = new Marionette.Application();
 
 App.addRegions({
+    headerRegion: "#header-region",
     mainRegion: "#main-region",
     dialogRegion: Marionette.Region.Dialog.extend({
         el: "#dialog-region"

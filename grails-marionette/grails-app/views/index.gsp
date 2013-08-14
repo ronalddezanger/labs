@@ -4,24 +4,30 @@
         <meta charset="utf-8">
         <title>Marionette example</title>
         <link rel="stylesheet" href="css/bootstrap.css">
-        %{--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">--}%
         <link rel="stylesheet" href="css/app.css">
-        %{--<link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css"/>--}%
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <span class="navbar-brand">Marionette App</span>
-                    <span class="pull-right"><a href="#about" class="btn btn-primary btn-small js-show-about">About</a></span>
-                </div>
-            </div>
-        </div>
+        <nav id="header-region" class="navbar" role="navigation"></nav>
         <div id="main-region" class="container"></div>
         <div id="dialog-region"></div>
         <div id="modal" class="modal fade"></div>
 
         <!-- TEMPLATES -->
+        <script id="header-template" type="text/x-handlebars-template">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="navbar-brand" href="#pages">Marionette Pages App</a>
+                    <a href="#about">About</a>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav"></ul>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="header-link" type="text/x-handlebars-template">
+            <a href="#{{url}}">{{name}}</a>
+        </script>
 
         <script id="page-list-item" type="text/x-handlebars-template">
             <td>{{title}}</td>
@@ -115,11 +121,10 @@
 
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/jquery.js"></script>
-        %{--<script src="js/vendor/jquery-ui-1.10.3.js"></script>--}%
-        %{--<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>--}%
         <script src="js/vendor/bootstrap.js"></script>
         <script src="js/vendor/json2.js"></script>
         <script src="js/vendor/backbone.js"></script>
+        <script src="js/vendor/backbone.picky.js"></script>
         <script src="js/vendor/backbone.syphon.js"></script>
         <script src="js/vendor/backbone.babysitter.js"></script>
         <script src="js/vendor/backbone.wreqr.js"></script>
@@ -131,6 +136,7 @@
         <script src="js/apps/config/marionette/regions/modal.js"></script>
         <script src="js/main.js"></script>
         <script src="js/entities/common.js"></script>
+        <script src="js/entities/header.js"></script>
         <script src="js/entities/page.js"></script>
         <script src="js/apps/pages/pages_app.js"></script>
         <script src="js/common/views.js"></script>

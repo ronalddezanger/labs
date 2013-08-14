@@ -1,4 +1,3 @@
-/* Uses jquery-ui for modal */
 Marionette.Region.Dialog = Marionette.Region.extend({
     onShow: function(view) {
         this.listenTo(view, "dialog:close", this.closeDialog);
